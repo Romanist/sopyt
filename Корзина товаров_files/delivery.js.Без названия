@@ -1,0 +1,366 @@
+
+var resultData = {},
+dataselect = [];
+
+var cityChange =  function() {
+    var $city = $('.js-delivery-city'),
+        $cityId = $('.js-delivery-city-id'),
+        $type = $('.js-delivery-type'),
+        data = {},
+        $form = $('.js-delivery-city-text').closest('form')
+    ;
+
+    data[$city.attr('name')] = $city.val();
+    data[$cityId.attr('name')] = $cityId.val();
+    sendForm($form, data);
+};
+
+$(document).on('change', '.js-delivery-type', function() {
+    var data = {},
+        $city = $('.js-delivery-city'),
+        $cityId = $('.js-delivery-city-id'),
+        $type = $(this),
+        $form = $(this).closest('form')
+    ;
+    data[$city.attr('name')] = $city.val();
+    data[$cityId.attr('name')] = $cityId.val();
+    data[$type.attr('name')] = $type.val();
+    sendForm($form, data);
+});
+
+var selectData = {
+    minimumResultsForSearch: Infinity,
+    width: '99%'
+};
+
+function sendForm($form, data) {
+    $.ajax({
+        url : $form.attr('action'),
+        type: $form.attr('method'),
+        data : data,
+        success: function(html) {
+            var cityText = $('.jsdeliverycitytext').val();
+            var city = $('.jsdeliverycity').val();
+            var cityId = $('.jsdeliverycityid').val();
+            var query = $('.jsdeliverycitytext').data('query');
+
+            var html = $(html).find('.delivery');
+            var $cart  = $('.content.cart');
+            html.find('.item').removeClass('error');
+            $('.delivery').replaceWith(html);
+            $('select').not('.select2-hidden-accessible').select2(selectData);
+            $('.jsdeliverycitytext').val(cityText);
+            $('.jsdeliverycitytext').data('query', query);
+            $('.jsdeliverycitytext').data('val', cityText);
+            $('.jsdeliverycityid').val(cityId);
+            $('.jsdeliverycity').val(city);
+
+            $('.jsdeliverycitytext').wrap('<div class = "jsdeliverycity_wrap"></div>');
+            $('.jsdeliverycity_wrap').append('<div class = "drop_down"></div>');
+
+            $('.js-delivery-address').wrap('<div class = "js-delivery-address_wrap"></div>');
+            $('.js-delivery-address_wrap').append('<div class = "drop_down"></div>');
+            
+            $('#order_type_delivery_date').trigger('change');
+            if ($cart.length) {
+                updateCartHeight()
+            }
+        }
+    });
+}
+
+$(document).ready(function() {
+    // $(document).on('click', '.type-person-left', function(){
+    //     $('#order_type_buyerType_0').prop( "checked", true );
+    //     $('#order_type_buyerType_1').prop( "checked", false );
+    // });
+
+    // $(document).on('click', '.type-person-right', function(){
+    //     $('#order_type_buyerType_0').prop( "checked", false );
+    //     $('#order_type_buyerType_1').prop( "checked", true );
+    // });
+
+    // if($('.item.item-hr.js-juristic').is(':visible')){
+    //     $('#order_type_buyerType_1').removeAttr('checked').prop( "checked", true );
+    //     $('#order_type_buyerType_0').removeAttr('checked').prop( "checked", false );
+    // }else{
+    //     $('#order_type_buyerType_0').removeAttr('checked').prop( "checked", true );
+    //     $('#order_type_buyerType_1').removeAttr('checked').prop( "checked", false );
+    // }
+
+    if($('.jsdeliverycitytext').length > 0){
+        $('select').not('.select2-hidden-accessible').select2(selectData);
+
+        $('.jsdeliverycitytext').wrap('<div class = "jsdeliverycity_wrap"></div>');
+        $('.jsdeliverycity_wrap').append('<div class = "drop_down"></div>');
+
+        var lastData = {};
+
+        if($('.jsdeliverycityid').val())
+            var selected = true;
+        else
+            var selected = false;
+
+        function ajaxing(cityFinding) {
+            $.ajax({
+                    url: '/cart/cities',
+                    dataType: 'json',
+                    data: {
+                        term: cityFinding
+                    },
+                    type: "POST",
+                    async: false,
+                    success: function(data){
+                        data = JSON.parse(data);
+                        lastData = data;
+                        looping(data); 
+                        console.log('ajaxed')                   
+                    }
+                });
+        }
+
+        function looping(data){
+            var html = '';
+            var arr = [];
+            $.each(data, function(i, city){
+                arr.push(city.name);
+                html += '<div data-id ="' + city.id + '" data-city="'+ city.name +'" data-text="'+ city.text +'" class ="city_dd_item city_number_' + i + '">' + city.text + '</div>';
+            });
+            console.log(arr.length);
+            $('.jsdeliverycity_wrap .drop_down').html(html);
+
+            if (arr.length < 1){
+                $('.jsdeliverycity_wrap .drop_down').hide();
+            }
+            else{
+                $('.jsdeliverycity_wrap .drop_down').show();
+                // $('.jsdeliverycity_wrap .drop_down').addClass('open');
+            }
+        }
+
+        $(document).on('focus', '.jsdeliverycitytext', function(){
+            $('.jsdeliverycity_wrap .drop_down').show();
+            // $('.jsdeliverycity_wrap .drop_down').addClass('open');
+
+            $(this).data('val', $(this).val());
+            var cityFinding = $('.jsdeliverycitytext').data('query');
+
+            if(!$('.jsdeliverycitytext').val() || !cityFinding){
+                var cities = $('.jsdeliverycitytext').data("cities");
+                looping(cities);
+            }
+            else{
+                if(cityFinding){
+                    ajaxing(cityFinding);
+                }
+            }
+
+            $(this).val('');
+        });
+
+        $(document).on('focusout', '.jsdeliverycitytext', function(){
+            $('.jsdeliverycity_wrap .drop_down').hide();
+        //     // var val = $('.jsdeliverycitytext').data('val');
+                 
+        //     // $.each(lastData, function(i, dataArray){
+        //     //     var city = dataArray.name;
+        //     //     console.log('cityyyyyyyy')
+        //     //     console.log(city)
+        //     //     console.log(val)
+        //     // 	if(city.toLowerCase() == val.toLowerCase()){
+        //     //         console.log(cityText)
+        //     //         console.log('cityyyyyyyy1')
+        //     // 		var cityText = dataArray.text;
+    		  //     //   var cityId = dataArray.id;
+    		       
+    		  //     //   $('.jsdeliverycitytext').val(cityText);
+    		  //     //   $('.jsdeliverycitytext').data('val', cityText);
+
+    		  //     //   if(city && $('.jsdeliverycitytext').data('query'))
+    		  //     //       $('.jsdeliverycitytext').data('query', city);
+    		  //     //   else $('.jsdeliverycitytext').val(cityText);
+
+
+    		  //     //   $('.jsdeliverycityid').val(cityId);
+    		  //     //   $('.jsdeliverycity').val(city);
+        //     // 	}
+        //     // });
+
+            $(this).val($(this).data('val'));
+
+            if(!selected){
+                $('.jsdeliverycitytext').closest('.item').addClass('error');
+            }
+
+        //     // $('.jsdeliverycitytext').trigger('change');
+        });
+
+        $(document).on('submit', '.checkout form', function(){
+            if(!selected && !$('.item.item-hr.js-juristic').is(':visible')){
+            //     $('.jsdeliverycitytext').closest('.item').addClass('error');
+            //     return false;
+            // }
+            // if($('.jsdeliverycity_wrap .drop_down').hasClass('open')){
+                $('.jsdeliverycitytext').closest('.item').addClass('error');
+                return false;
+            }
+        });
+
+        $(document).on('keyup', '.jsdeliverycitytext', function(event){
+            var obj = $(this);
+            selected = false;
+
+            // if(obj.val().length > $('.jsdeliverycity').val().length && $('.jsdeliverycity').val().length != 0)
+            //     var cityFinding = $('.jsdeliverycity').val();
+            // else 
+                var cityFinding = obj.val();
+
+            delay(function(){
+                // Allow controls such as backspace, tab etc.
+                var arr = [8,9,16,17,20,35,36,37,38,39,40,45,46];
+
+                // Allow letters
+                for(var i = 65; i <= 90; i++){
+                    arr.push(i);
+                }
+
+                // Prevent default if not in array
+                if(jQuery.inArray(event.which, arr) === -1){
+                    return false;
+                }
+
+                if(cityFinding){
+                    obj.data('val', cityFinding);
+                    ajaxing(cityFinding);
+                }
+            }, 600 );
+
+            obj.data('query', cityFinding);
+        });
+
+        $(document).on('click mousedown', '.jsdeliverycity_wrap .drop_down .city_dd_item', function(){
+            var cityText = $(this).data('text');
+            var city = $(this).data("city");
+            var cityId = $(this).data("id");
+           
+            $('.jsdeliverycitytext').val(cityText);
+            $('.jsdeliverycitytext').data('val', cityText);
+
+            if(city && $('.jsdeliverycitytext').data('query'))
+                $('.jsdeliverycitytext').data('query', city);
+
+            $('.jsdeliverycityid').val(cityId);
+            $('.jsdeliverycity').val(city);
+            selected = true;
+
+            // $('.jsdeliverycitytext').trigger('change');
+            cityChange();
+        });
+
+        var delay = (function(){
+          var timer = 0;
+          return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+          };
+        })();
+
+
+
+
+
+
+
+        $('.js-delivery-address').wrap('<div class = "js-delivery-address_wrap"></div>');
+        $('.js-delivery-address_wrap').append('<div class = "drop_down"></div>');
+
+        function ajaxingAddress(addressFinding, city) {
+            $.ajax({
+                    url: '/cart/address',
+                    dataType: 'json',
+                    data: {
+                        term: addressFinding,
+                        city: city
+                    },
+                    type: "POST",
+                    async: false,
+                    success: function(data){
+                        data = JSON.parse(data);
+                        loopingAddress(data);                    
+                    }
+                });
+        }
+
+        function loopingAddress(data){
+            var html = '';
+            $.each(data, function(i, address){
+                html += '<div data-id ="' + address.id + '" data-address="'+ address.name +'" data-text="'+ address.text +'" class ="address_dd_item address_number_' + i + '">' + address.text + '</div>';
+            });
+
+            $('.js-delivery-address_wrap .drop_down').html(html);
+
+            if(html.length)
+                $('.js-delivery-address_wrap .drop_down').show();
+            else
+                $('.js-delivery-address_wrap .drop_down').hide();
+        }
+
+        $(document).on('focus', '.js-delivery-address', function(){
+            // $('.js-delivery-address_wrap .drop_down').show(); 
+            $(this).data('val', $(this).val());
+            var addressFinding = $('.js-delivery-address').data('query');
+
+            if(addressFinding){
+                ajaxingAddress(addressFinding, $('.jsdeliverycityid').val());
+            }
+
+            // $(this).val('');
+        });
+
+        $(document).on('focusout', '.js-delivery-address', function(){
+            $('.js-delivery-address_wrap .drop_down').hide();
+        });
+
+        $(document).on('keyup', '.js-delivery-address', function(event){
+            var obj = $(this);
+
+            var addressFinding = obj.val();
+
+            delay(function(){
+                // Allow controls such as backspace, tab etc.
+                var arr = [8,9,16,17,20,35,36,37,38,39,40,45,46];
+
+                // Allow letters
+                for(var i = 65; i <= 90; i++){
+                    arr.push(i);
+                }
+
+                // Prevent default if not in array
+                if($.inArray(event.which, arr) === -1){
+                    return false;
+                }
+
+                if(addressFinding){
+                    obj.data('val', addressFinding);
+                    ajaxingAddress(addressFinding, $('.jsdeliverycityid').val());
+                }
+            }, 600 );
+
+            obj.data('query', addressFinding);
+            obj.data('val', addressFinding);
+        });
+
+        $(document).on('click mousedown', '.js-delivery-address_wrap .drop_down .address_dd_item', function(){
+            var addressText = $(this).data('text');
+            var address = $(this).data("address");
+            var addressId = $(this).data("id");
+
+            $('.js-delivery-address').val(addressText);
+            $('.js-delivery-address').data('val', addressText);
+
+            if(address && $('.js-delivery-address').data('query'))
+                $('.js-delivery-address').data('query', address);
+        });
+
+    }
+});
