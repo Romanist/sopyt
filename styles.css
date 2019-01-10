@@ -1151,12 +1151,55 @@ td {
 
 
 @media screen and (max-width: 1023px) {
-
+	.main_basket {
+		padding: 0;
+	}
+	td.checkout div.form {
+		font-size: 18px;
+	}
+	div.form input[type="text"], div.form input[type="email"] {
+		font-size: 18px;
+	}
+	table.good-list td, table.good-list-caption td {
+		font-size: 18px;
+		/*13*/
+	}
+	td.checkout div.form {
+		margin-top: 70px;
+	}
+	
 }
 
 
 @media screen and (max-width: 767px) {
-	
+	.checkout {
+		width: 100%;
+	}
+	table.good-list td.name, td.image {
+		padding-top: 30px;
+		padding-bottom: 0;
+	}
+	.cart-body td{
+		float: left;
+	}
+	td.image {
+		width: 40%;
+	}
+	table.good-list td.name {
+		width: 49%;
+	}
+	.cost {
+		width: 33%;
+	}
+	.cost, .x, .quantity, .equal, .price{
+		padding-top: 20px;
+	}
+	.cart-body td.delete {
+		float: none;
+	}
+	.good-list-caption {
+		display: none;
+	}
 }
 
 
