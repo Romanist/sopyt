@@ -628,10 +628,12 @@ div.descriptionShow {
 
 .descriptionShow iframe {
 	float: right;
+	margin: 30px 0;
+	width: 40%;
 }
 .descriptionShow ul {
-	float: left;
-	width: 50%;
+	float: none;
+	width: 100%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -657,7 +659,15 @@ div.main {
 	border-bottom: solid 1px #c5c4c4;
 	padding-bottom: 40px;
 }
-
+.wrap_list {
+	overflow: hidden;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+}
 /**/
 .footer {
 	margin-top: 0;
@@ -671,6 +681,8 @@ div.main {
 	font-size: 20px;
 }
 
+
+
 @media screen and (max-width: 1540px) {
 	.description {
 		font-size: 18px;
@@ -681,7 +693,11 @@ div.main {
 	.about-product div.description {
 		margin-left: 0;
 	}
+	.descriptionShow iframe {
+		padding: 0 3%;
+	}
 }
+
 
 @media screen and (max-width: 1023px) {
 	.m-desc {
@@ -689,6 +705,11 @@ div.main {
 	}
 	.m-mobile {
 		display: block;
+	}
+	.descriptionShow iframe {
+		margin: 0;
+		width: 100%;
+		padding: 0;
 	}
 
 	.product-line {
@@ -996,8 +1017,6 @@ div.form input[type="text"], div.form input[type="email"], div.form textarea, di
 
 
 
-
-
 table.good-list-caption {
 	border-bottom: 2px #808080 solid;
 	margin-bottom: -1px;
@@ -1074,19 +1093,61 @@ button.checkout {
 
 
 
-
-
-
-
-
-
-
-
+.table_col_decs {
+	display: none;
+}
 td {
 	/*outline: 1px solid;*/
 }
 
-
+@media screen and (max-width: 1180px) {
+	.flex_table {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+	}
+	td.checkout div.form {
+		border-top: 2px #808080 solid;
+	}
+	.checkout {
+		margin: 0 auto;
+		width: 60%;
+	}
+	td.checkout div.form {
+		font-size: 13px;
+	}
+	div.form input[type="text"], div.form input[type="email"] {
+		font-size: 13px;
+	}
+	table.good-list td, table.good-list-caption td {
+		font-size: 13px;
+		/*13*/
+	}
+	div.form input[type="text"], div.form input[type="email"], div.form textarea, div.form input[type="date"] {
+		width: 97%;
+	}
+	.js-individual {
+		width: 100%;
+	}
+	.item-hr {
+		width: 99%;
+	}
+	.table_col_mob {
+		display: none;
+	}
+	.table_col_decs {
+		display: block;
+		width: 100%;
+		text-align: center;
+		padding: 20px 0;
+	}
+}
 
 
 @media screen and (max-width: 1023px) {

@@ -86,15 +86,16 @@
                             <td class="equal">&nbsp;</td>
                             <td class="price">Стоимость</td>
                             <td class="delete">&nbsp;</td>
-                            <td class="total">
+                            <!-- EXO<<<< addClass table_col_mob-->
+                            <td class="total table_col_mob">
                                 В корзине <span class="order-quantity">1 товар</span>
                                 на сумму <span class="order-price">708.00</span> руб
                             </td>
                         </tr>
                     </tbody></table>
-
+<!-- EXO<<<< Добавлен класс -->
                     <table class="good-list">
-                        <tbody><tr>
+                        <tbody><tr class="flex_table">
                             <td class="cart-body" colspan="8">
                                 <table>
                                     <tbody>
@@ -156,7 +157,14 @@
                             </td>
                             <td class="checkout">
                                 <form name="order_type" method="post" action="https://www.sopytka.ru/cart/" novalidate="novalidate" enctype="multipart/form-data">
+
                                     <div class="form">
+                                        <!-- EXO<<<< Дуюликат контейнера table_col_mob-->
+                                        <div class="total table_col_decs">
+                                            В корзине <span class="order-quantity">1 товар</span>
+                                            на сумму <span class="order-price">708.00</span> руб
+                                        </div>
+                                        <!-- EXO<<<< Дуюликат контейнера-->
                                         <div class="item type-person"><input type="radio" id="order_type_buyerType_0" name="order_type[buyerType]" required="required" value="personal" checked="checked"><label class="type-person-left required" for="order_type_buyerType_0">Физическое лицо</label><input type="radio" id="order_type_buyerType_1" name="order_type[buyerType]" required="required" value="juristic"><label class="type-person-right required" for="order_type_buyerType_1">Юридическое лицо</label></div>
                                         <div class="item">
                                             <input type="text" id="order_type_buyerPhone" name="order_type[buyerPhone]" required="required" placeholder="Телефон">
