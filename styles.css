@@ -1193,6 +1193,13 @@ td {
 	}
 	.cost, .x, .quantity, .equal, .price{
 		padding-top: 20px;
+		padding-bottom: 40px;
+	}
+	.price, .cost {
+		font-weight: bold;
+	}
+	.price {
+		width: 30%;
 	}
 	.cart-body td.delete {
 		float: none;
