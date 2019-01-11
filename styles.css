@@ -510,6 +510,7 @@ ul.productsMenu .left{
 	margin: 0;
 	margin-left: 5%;
 	float: left;
+	width: 55%;
 }
 
 .breadcrumbs {
@@ -858,6 +859,7 @@ div.main {
 @media screen and (max-width: 767px) {
 	.about-product div.image div.inner img {
 		width: 100% !important;
+		height: auto !important;
 	}
 	.product-name {
 		line-height: normal;
@@ -1196,6 +1198,9 @@ button.checkout {
 	table.good-list td.name, td.image {
 		padding-top: 0px;
 		padding-bottom: 0;
+	}
+	table.good-list td.quantity {
+		padding-top: 12px;
 	}
 	td.image {
 		padding-right: 10px;
