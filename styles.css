@@ -1167,6 +1167,26 @@ td {
 	td.checkout div.form {
 		margin-top: 70px;
 	}
+	input.textBox {
+		height: 40px;
+		font-weight: bold;
+		font-size: 18px;
+	}
+	.price, .equal, .cost, .x {
+		font-weight: bold;
+	}
+	td.delete span {
+		display: inline;
+	}
+	input.textBox, textarea {
+		width: 80%!important;
+	}
+	td.checkout div.form {
+		border: none;
+		padding-right: 0;
+		padding-left: 0;
+		margin-top: 50px;
+	}
 	
 }
 
@@ -1201,12 +1221,22 @@ td {
 	.price {
 		width: 30%;
 	}
+	td.x, td.equal {
+		width: 8%;
+	}
+	.quantity {
+		width: 10%;
+	}
+	.delete {
+		width: 20px;
+	}
 	.cart-body td.delete {
 		float: none;
 	}
 	.good-list-caption {
 		display: none;
 	}
+
 }
 
 
