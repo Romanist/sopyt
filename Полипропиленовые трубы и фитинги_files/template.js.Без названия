@@ -1,0 +1,17 @@
+$(document).ready(function(){
+    window.template = twig({
+        data:   '<li id="{{ product_id }}" class="b-item {% if last %}last{% endif %}">' +
+                    '<a href="{{ product_url }}" title="Перейти к товару "{{ product_name }}">' +
+                        '<img class="b-item-image" src="{{ image_url }}" alt="{{ product_name }}">' +
+                    '</a>' +
+                    '<a class="b-item-caption" href="{{ product_url }}" title="Перейти к товару "{{ product_name }}">{{ product_name }}<br>{{ product_params }}</a>' +
+                    '<div class="b-item-price">{{ product_price }} руб</div>' +
+                    '{% if cart_show and cart_add %}' + 
+                        '<div class="basket_button_wrapper">' +
+                            '<div id="have-in-cart" style="display:  none ">Товар в <a href="{{ cart_show }}">корзине</a></div>' +
+                            '<a style="display: inline "class="b-item_in-basket" href="{{ cart_add }}" title="Добавить в корзину">В корзину</a>' +
+                        '</div>' +
+                    '{% endif %}' +
+                '</li>'
+    });
+});

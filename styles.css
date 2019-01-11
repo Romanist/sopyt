@@ -97,6 +97,11 @@ ul.productsMenu .left{
 	text-decoration: none;
 }
 
+.b-cat:first-child,
+.b-cat{
+	margin-top: 0;
+}
+
 @media screen and (min-width: 1440px) {
 	.b-cat-items li{
 		padding: 0 30px;
@@ -124,6 +129,7 @@ ul.productsMenu .left{
 		flex-wrap: wrap;
 
 		margin-left: 0;
+		margin-right: 0;
 	}
 	.b-cat-items li{
 		width: 100%;
@@ -140,10 +146,14 @@ ul.productsMenu .left{
 	}
 	.b-cat-title{
 		font-size: 48px;
+		text-align: center;
 
 		padding: 0 40px;
 
 		display: block;
+	}
+	.sub-cats{
+		margin: 0;
 	}
 	.count-items{
 		display: none;
@@ -278,6 +288,13 @@ ul.productsMenu .left{
 	}
 	.product-menu{
 		margin-top: 0;
+	}
+	.tab span{
+		border-bottom: none;
+	}
+	.tab {
+	    font-size: 18px;
+	    color: #000;
 	}
 }
 
