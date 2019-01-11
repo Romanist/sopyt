@@ -427,7 +427,7 @@ ul.productsMenu .left{
     .at-icon-wrapper {
         padding: 16px 10px 10px;
     }
-    
+
     .footer {
         font-size: 30px;
     }
@@ -983,6 +983,14 @@ div.main {
 
 
 /*Basket*/
+div.form input[type="text"], div.form input[type="email"], div.form textarea, div.form input[type="date"] {
+	min-height: 30px;
+	border: 1px #808080 solid;
+	font-size: 14px;
+	padding-left: 2%;
+	padding-top: 0;
+	padding-bottom: 0;
+}
 div.layout.basket {
     width: auto;
     padding: 0 5%;
@@ -1076,6 +1084,13 @@ button.checkout {
 .table_col_decs {
 	display: none;
 }
+.name a {
+	text-decoration: none;
+	color: #0e468b;
+}
+.item-desc {
+    padding-top: 5px;
+}
 
 @media screen and (max-width: 1180px) {
 	.flex_table {
@@ -1100,7 +1115,7 @@ button.checkout {
 		font-size: 13px;
 	}
 	div.form input[type="text"], div.form input[type="email"] {
-		font-size: 13px;
+		font-size: 14px;
 	}
 	table.good-list td, table.good-list-caption td {
 		font-size: 13px;
@@ -1175,6 +1190,9 @@ button.checkout {
 	table.good-list td.name, td.image {
 		padding-top: 30px;
 		padding-bottom: 0;
+	}
+	td.image {
+		padding-right: 10px;
 	}
 	.cart-body td{
 		float: left;
