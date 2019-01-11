@@ -987,6 +987,9 @@ div.main {
 .fixed {
 	position: static;
 }
+td.cart-body table tr:hover {
+	background-color: initial;
+}
 .type-person {
 	padding-bottom: 0!important;
 }
