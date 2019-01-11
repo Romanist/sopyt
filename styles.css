@@ -431,29 +431,29 @@ ul.productsMenu .left{
     .footer {
         font-size: 30px;
     }
-    .footer__center {
-        padding-bottom: 50px;
-    }
-        .footer__center p:first-child {
-            width: 80%;
-            margin: 0 auto;
-        }
-        .footer__center p:last-child {
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-    .footer__list {
-        padding: 0;
-    }
-    .footer__links li {
-        display: block;
-        padding: 10px 8%;
-    }
-    .footer .block {
-        width: 100%;
-        text-align: center;
-        padding-bottom: 40px;
-    }
+	    .footer__center {
+	        padding-bottom: 50px;
+	    }
+	        .footer__center p:first-child {
+	            width: 80%;
+	            margin: 0 auto;
+	        }
+	        .footer__center p:last-child {
+	            padding-top: 10px;
+	            padding-bottom: 10px;
+	        }
+	    .footer__list {
+	        padding: 0;
+	    }
+	    .footer__links li {
+	        display: block;
+	        padding: 10px 8%;
+	    }
+	    .footer .block {
+	        width: 100%;
+	        text-align: center;
+	        padding-bottom: 40px;
+	    }
     .soc{
         float: none !important;
         padding: 1px;
@@ -469,23 +469,23 @@ ul.productsMenu .left{
         font-size: 18px;
         padding: 25px 16px;
     }
-    .footer__center {
-        padding-bottom: 30px;
-        margin-bottom: 40px;
+	    .footer__center {
+	        padding-bottom: 30px;
+	        margin-bottom: 40px;
+	    }
+	    .footer .block {
+	        padding-bottom: 24px;
+	    }
+	    .footer__links {
+	        padding-bottom: 25px;
+	        padding-top: 0;
+	    }
+    .at-icon-wrapper {
+        padding: 0px 5px 0px;
     }
     .icon-c {
         width: 30px !important;
         height: 30px !important;
-    }
-    .footer .block {
-        padding-bottom: 24px;
-    }
-    .footer__links {
-        padding-bottom: 25px;
-        padding-top: 0;
-    }
-    .at-icon-wrapper {
-        padding: 0px 5px 0px;
     }
 }
 
@@ -1035,7 +1035,6 @@ td.checkout div.form {
     border-right: 2px #808080 solid;
     border-top: none;
     border-radius: 0;
-    /*width: 46%;*/
     box-sizing: border-box;
     margin-left: 0;
     padding: 13px 30px;
@@ -1067,7 +1066,6 @@ table.good-list, table.good-list-caption {
 }
 table.good-list td, table.good-list-caption td {
 	font-size: 18px;
-
 	/*13*/
 }
 
