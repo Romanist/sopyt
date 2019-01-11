@@ -36,3 +36,4 @@ $('.tyings-items').owlCarousel({
 
 
 
+
