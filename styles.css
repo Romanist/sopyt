@@ -1220,7 +1220,7 @@ button.checkout {
 		width: 49%;
 	}
 	.cost {
-		width: 33%;
+		width: 23%;
 		clear: both;
 	}
 	.cost, .x, .quantity, .equal, .price{
@@ -1231,7 +1231,7 @@ button.checkout {
 		font-weight: bold;
 	}
 	.price {
-		width: 30%;
+		width: 36%;
 	}
 	td.x, td.equal {
 		width: 8%;
@@ -1252,7 +1252,11 @@ button.checkout {
 	}
 }
 
-
+@media screen and (max-width: 376px) {
+	.cost {
+		width: 33%;
+	}
+}
 
 
 
