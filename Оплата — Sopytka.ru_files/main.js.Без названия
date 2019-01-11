@@ -1,0 +1,56 @@
+$(document).ready(function(){
+    $('.js-thumbnails').on('mouseenter',function(){
+        var $this = $(this);
+        var fullSize = $this.attr('data-full-size') > 0;
+        var imageId = '#' + $this.attr('data-thumbnail-for');
+        var $description = $('.description');
+
+        if (fullSize) {
+            $description.hide();
+        } else {
+            $description.show();
+        }
+
+        $('.js-product-image').hide();
+        $(imageId).show();
+    });
+
+    $('.js-add-to-cart').on('click', function() {
+        $.ajax(
+            {
+                url: $(this).attr('href'),
+                type: 'POST',
+                cache: false,
+                async: true,
+                success: function(data){
+                    console.log(data);
+                    if (data.status == 'Ok') {
+                        $('#have-in-cart').show();
+                        if (data.quantity > 0) {
+                            $('.js-cart-delimeter').show();
+                            $('.js-cart-info').html( data.quantity + '\xa0' + GetNoun(data.quantity, 'товар', 'товара', 'товаров') ).show();
+                        }
+                    }
+                }
+            }
+        );
+
+        return false;
+    })
+});
+
+GetNoun = function(number, one, two, five) {
+    number = Math.abs(number);
+    number %= 100;
+    if (number >= 5 && number <= 20) {
+        return five;
+    }
+    number %= 10;
+    if (number == 1) {
+        return one;
+    }
+    if (number >= 2 && number <= 4) {
+        return two;
+    }
+    return five;
+}

@@ -1314,3 +1314,29 @@ button.checkout {
 		overflow: hidden;
 	}
 }
+
+/*оплатa*/
+.order_w p{
+	font-size: 20px;
+}
+div.payment h1 {
+	font-size: 34px;
+}
+.order_w span{
+	font-weight: bold;
+}
+
+@media screen and (max-width: 1540px) {
+	.order_w p{
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 1023px) {
+	div.payment h1 {
+		font-size: 26px;
+	}
+	.order_w p{
+		font-size: 14px;
+	}
+}
