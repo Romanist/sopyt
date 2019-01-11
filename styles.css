@@ -1329,8 +1329,28 @@ div.payment h1 {
 	font-weight: bold;
 }
 
+/*Доставка*/
+div.page_delivery h1 {
+	font-size: 42px;
+	text-align: center;
+}
+.page_delivery p, .page_delivery strong{
+	font-size: 20px;
+	margin: 0;
+	padding: 10px 0;
+}
+
+.text_bold {
+	font-weight: bold;
+}
+
+
+
 @media screen and (max-width: 1540px) {
 	.order_w p{
+		font-size: 16px;
+	}
+	.page_delivery p, .page_delivery strong{
 		font-size: 16px;
 	}
 }
@@ -1339,7 +1359,15 @@ div.payment h1 {
 	div.payment h1 {
 		font-size: 26px;
 	}
+	div.page_delivery h1 {
+		font-size: 26px;
+	}
 	.order_w p{
 		font-size: 14px;
 	}
+	.page_delivery p, .page_delivery strong{
+		font-size: 14px;
+	}
+
 }
+
