@@ -1227,6 +1227,8 @@ button.checkout {
 	}
 	.cart-body td.delete {
 		float: none;
+		vertical-align: top;
+		padding-top: 30px;
 	}
 	.good-list-caption {
 		display: none;
