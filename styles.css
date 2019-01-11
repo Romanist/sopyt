@@ -733,11 +733,13 @@ div.main {
 		text-align: center;
 	}
 
-	.main {
-		padding-left: 8%;
-		padding-right: 8%;
+	.about-product .gallery {
+		width: 100%;
 	}
-
+	.product-name {
+		font-size: 46px;
+		line-height: 64px;
+	}
 	div.propertyName {
 		float: none;
 		width: 100%;
@@ -967,9 +969,6 @@ div.main {
 @media screen and (max-width: 1023px) {
 	.tyings-caption {
 		padding: 10px 0 40px 0;
-	}
-	.main {
-		padding: 0 8%;
 	}
 }
 
