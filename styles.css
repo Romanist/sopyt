@@ -201,7 +201,7 @@ ul.productsMenu .left{
 	}
 	div.head{
 		position: fixed;
-		z-index: 1;
+		z-index: 10;
 
 		top: 0;
 		left: 0;
@@ -984,6 +984,9 @@ div.main {
 
 
 /*Basket*/
+.fixed {
+	position: static;
+}
 .type-person {
 	padding-bottom: 0!important;
 }
@@ -1252,6 +1255,9 @@ button.checkout {
 @media screen and (max-width: 376px) {
 	.cost {
 		width: 33%;
+	}
+	.type-person .type-person-left, .type-person .type-person-right {
+		padding: 20px 14px;
 	}
 }
 
