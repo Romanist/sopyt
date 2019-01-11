@@ -355,19 +355,15 @@ ul.productsMenu .left{
     box-sizing: border-box;
     font-size: 18px;
 }
-
     .footer .layout {
         max-width: inherit;
     }
-
     .footer__links {
         padding: 40px 0;
     }
-
     .footer__links, .footer__center {
         text-align: center;
     }
-
     .footer__center {
         text-align: center;
         padding-bottom: 40px;
@@ -380,12 +376,10 @@ ul.productsMenu .left{
         .footer__center p:first-child {
             padding-bottom: 16px;
         }
-
     .footer__list {
         list-style: none;
         margin: 0;
     }
-
     .footer__list_item {
         display: inline-block;
         transition: all ease .3s;
@@ -395,7 +389,6 @@ ul.productsMenu .left{
         .footer__list_item:hover {
             color: #f04747; 
         }
-
     .footer a {
         color: #fff;
         text-decoration: none;
@@ -404,23 +397,19 @@ ul.productsMenu .left{
         .footer a:hover {
             color: #f04747; 
         }
-
     .line {
         display: none;
     }
-
     .footer .block {
         margin: 0;
         width: auto;
     }
-
     .copy {
         padding-bottom: 66px;
     }
 	    .copy p:first-child {
 	    	padding-bottom: 16px;
 	    }
-
     .addthis_sharing_toolbox {
         width: 100%;
         padding-top: 10px;
@@ -431,15 +420,16 @@ ul.productsMenu .left{
         }
 
 @media screen and (max-width: 1023px) {
-    .footer {
-        font-size: 30px;
-    }
     .icon-c {
         width: 50px !important;
         height: 50px !important;
     }
     .at-icon-wrapper {
         padding: 16px 10px 10px;
+    }
+    
+    .footer {
+        font-size: 30px;
     }
     .footer__center {
         padding-bottom: 50px;
@@ -828,7 +818,7 @@ div.main {
 			overflow: hidden;
 			margin: 0;
 		}
-		
+
 	.title.opened {
 		border-bottom: none;
 	}
