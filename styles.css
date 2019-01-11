@@ -983,6 +983,9 @@ div.main {
 
 
 /*Basket*/
+.type-person {
+	padding-bottom: 0!important;
+}
 div.form input[type="text"], div.form input[type="email"], div.form textarea, div.form input[type="date"] {
 	min-height: 30px;
 	border: 1px #808080 solid;
