@@ -1004,9 +1004,10 @@ div.form input[type="text"], div.form input[type="email"], div.form textarea, di
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-.delivery .item-hr {
+.delivery .item-hr, .item-hr {
 	width: 100%;
 }
+
 div.layout.basket {
     width: auto;
     padding: 0 5%;
@@ -1176,7 +1177,7 @@ button.checkout {
 	td.delete span {
 		display: inline;
 	}
-	input.textBox, textarea {
+	input.textBox {
 		width: 80%!important;
 	}
 	td.checkout div.form {
